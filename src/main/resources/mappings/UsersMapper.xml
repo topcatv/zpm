@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.topcat.zpm.modules.admin.dao.UsersMapper">
+    <resultMap id="BaseResultMap" type="org.topcat.zpm.modules.admin.entity.User">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="createBy" jdbcType="BIGINT" property="createBy"/>
+        <result column="createDate" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="updateBy" jdbcType="BIGINT" property="updateBy"/>
+        <result column="updateDate" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="delFlag" jdbcType="VARCHAR" property="delFlag"/>
+        <result column="loginName" jdbcType="VARCHAR" property="loginName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="userType" jdbcType="VARCHAR" property="userType"/>
+        <result column="loginIp" jdbcType="VARCHAR" property="loginIp"/>
+        <result column="loginDate" jdbcType="TIMESTAMP" property="loginDate"/>
+        <result column="loginFlag" jdbcType="VARCHAR" property="loginFlag"/>
+        <result column="photo" jdbcType="VARCHAR" property="photo"/>
+        <result column="salt" jdbcType="VARCHAR" property="salt"/>
+        <result column="remarks" jdbcType="LONGVARCHAR" property="remarks"/>
+        <collection property="roleList" ofType="org.topcat.zpm.modules.admin.entity.Role" resultMap="RoleResultMap" columnPrefix="role_"/>
+    </resultMap>
+
+    <resultMap id="RoleResultMap" type="org.topcat.zpm.modules.admin.entity.Role" >
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="enname" property="enname" jdbcType="VARCHAR" />
+        <result column="roleType" property="roleType" jdbcType="VARCHAR" />
+        <result column="useable" property="useable" jdbcType="VARCHAR" />
+        <result column="createBy" property="createBy" jdbcType="BIGINT" />
+        <result column="createDate" property="createDate" jdbcType="TIMESTAMP" />
+        <result column="updateBy" property="updateBy" jdbcType="BIGINT" />
+        <result column="updateDate" property="updateDate" jdbcType="TIMESTAMP" />
+        <result column="delFlag" property="delFlag" jdbcType="VARCHAR" />
+        <result column="remarks" property="remarks" jdbcType="LONGVARCHAR" />
+    </resultMap>
+
+    <sql id="userColums">
+        u.id, u.name, u.createBy, u.createDate, u.updateBy, u.updateDate, u.delFlag, u.loginName,
+        u.password, u.email, u.userType, u.loginIp, u.loginDate, u.loginFlag, u.photo, u.salt, u.remarks
+    </sql>
+    <sql id="roleColums">
+        r.id AS role_id, r.name AS role_name, r.enname AS role_enname, r.roleType AS role_roleType, r.useable AS role_useable, r.createBy AS role_createBy,
+        r.createDate AS role_createDate, r.updateBy AS role_updateBy, r.updateDate AS role_updateDate, r.delFlag AS role_delFlag, r.remarks AS role_remarks
+    </sql>
+
+    <select id="findByLoginName" resultMap="BaseResultMap" parameterType="string">
+        SELECT
+        <include refid="userColums"/>,
+        <include refid="roleColums"/>
+        FROM sys_users u LEFT JOIN sys_user_role ur ON u.id = ur.users_id
+        LEFT JOIN sys_roles r on ur.roles_id = r.id
+        WHERE loginName = #{loginName}
+    </select>
+</mapper>

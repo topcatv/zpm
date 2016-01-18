@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.topcat.zpm.modules.admin.dao.MenusMapper">
+  <resultMap id="BaseResultMap" type="org.topcat.zpm.modules.admin.entity.Menu">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent" jdbcType="BIGINT" property="parent" />
+    <result column="href" jdbcType="VARCHAR" property="href" />
+    <result column="target" jdbcType="VARCHAR" property="target" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="isShow" jdbcType="VARCHAR" property="isShow" />
+    <result column="createBy" jdbcType="BIGINT" property="createBy" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="updateBy" jdbcType="BIGINT" property="updateBy" />
+    <result column="updateDate" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="delFlag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+</mapper>
