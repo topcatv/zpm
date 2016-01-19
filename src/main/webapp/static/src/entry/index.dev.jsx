@@ -2,7 +2,6 @@ import '../common/lib';
 import App from '../containers/App';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import configureStore from '../store/configureStore';
 
@@ -10,6 +9,7 @@ import configureStore from '../store/configureStore';
 import { Router, Route, IndexRoute } from 'react-router';
 import history from '../common/history';
 
+import Login from '../components/Login';
 import Index from '../components/Index/Index';
 import Inbox from '../components/Index/Inbox';
 
@@ -23,7 +23,8 @@ ReactDOM.render(
 	<Provider store={store}>
 		<div>
 			<Router history={history}>
-		    <Route path="/" component={App}>
+				<Route path="/" component={Login} />
+		    <Route path="/admin" component={App}>
 		      <IndexRoute component={Index} />
 		      <Route path="index" component={Index} />
 		      <Route path="inbox" component={Inbox} />

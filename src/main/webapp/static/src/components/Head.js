@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Menu, Icon } from 'antd'
-import { Link } from 'react-router'
+import {Link} from 'react-router'
 
 export default class Head extends Component {
   render() {
@@ -8,7 +8,7 @@ export default class Head extends Component {
     	<div>
 		    <div className="ant-layout-header">
 	        <div className="ant-layout-wrapper">
-	          <div className="ant-layout-logo"><Link to="/index"><Icon type="home"/>ZPM 后台管理系统</Link></div>
+	          <div className="ant-layout-logo"><Link to="admin/index"><Icon type="home"/>ZPM 后台管理系统</Link></div>
 	        </div>
 	      </div>
       </div>

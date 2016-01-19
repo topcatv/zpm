@@ -94,7 +94,8 @@ public class LoginController extends BaseController {
 		
 		// 如果已经登录，则跳转到管理首页
 		if(principal != null){
-			return "redirect:" + adminPath;
+			model.addAttribute(FormAuthenticationFilter.DEFAULT_MESSAGE_PARAM, "用户已登录");
+			return renderString(response, model);
 		}
 
 		String username = WebUtils.getCleanParam(request, FormAuthenticationFilter.DEFAULT_USERNAME_PARAM);
@@ -127,11 +128,11 @@ public class LoginController extends BaseController {
 		request.getSession().setAttribute(ValidateCodeServlet.VALIDATE_CODE, IdGen.uuid());
 		
 		// 如果是手机登录，则返回JSON字符串
-		if (mobile){
+		//if (mobile){
 	        return renderString(response, model);
-		}
+		//}
 		
-		return "login";
+		//return "login";
 	}
 
 	/**
@@ -156,7 +157,8 @@ public class LoginController extends BaseController {
 				CookieUtils.setCookie(response, "LOGINED", "true");
 			}else if (StringUtils.equals(logined, "true")){
 				UserUtils.getSubject().logout();
-				return "redirect:" + adminPath + "/login";
+				response.setStatus(401);
+				return renderString(response, "");
 			}
 		}
 		
@@ -188,7 +190,7 @@ public class LoginController extends BaseController {
 ////			request.getSession().setAttribute("aaa", "aa");
 ////		}
 //		System.out.println("==========================b");
-		return "modules/admin/index";
+		return renderString(response, principal);
 	}
 	
 	/**
