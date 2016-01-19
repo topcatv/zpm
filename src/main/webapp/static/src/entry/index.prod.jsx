@@ -13,7 +13,8 @@ import Login from '../components/Login';
 import Index from '../components/Index/Index';
 import Inbox from '../components/Index/Inbox';
 
-let store = configureStore();
+const initialState = window.__INITIAL_STATE__ || {};
+let store = configureStore(initialState);
 
 ReactDOM.render( 
 	<Provider store={store}>
