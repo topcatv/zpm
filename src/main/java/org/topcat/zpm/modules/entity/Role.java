@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package org.topcat.zpm.modules.admin.entity;
+package org.topcat.zpm.modules.entity;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux';
-import { changeText, destoryText } from '../../actions/actions'
+import { changeText, destoryText } from '../../reducers/text'
 
 class Inbox extends Component {
   render() {

@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.topcat.zpm.common.utils.Digests;
 import org.topcat.zpm.common.utils.Encodes;
-import org.topcat.zpm.modules.admin.dao.UsersMapper;
-import org.topcat.zpm.modules.admin.entity.User;
+import org.topcat.zpm.modules.dao.UsersMapper;
+import org.topcat.zpm.modules.entity.User;
 
 /**
  * 用户管理类.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.topcat.zpm.modules.dao.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="org.topcat.zpm.modules.entity.Permission" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="permission" property="permission" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="permissionColums">
+    p.id, p.permission, p.description
+  </sql>
+  <select id="findByUser" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    SELECT
+    <include refid="permissionColums"/>
+    FROM sys_permissions p LEFT JOIN sys_role_permission rp ON p.id = rp.permissions_id
+    LEFT JOIN sys_roles r on rp.roles_id = r.id
+    LEFT JOIN sys_user_role ur on r.id = ur.roles_id
+    WHERE ur.users_id = #{userId, jdbcType=BIGINT}
+  </select>
+</mapper>

@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package org.topcat.zpm.modules.admin.entity;
+package org.topcat.zpm.modules.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -210,6 +210,7 @@ public class User extends DataEntity<User> {
 	 * 用户拥有的角色名称字符串, 多个角色名称用','分隔.
 	 */
 	public String getRoleNames() {
-		return Collections3.extractToString(roleList, "name", ",");
+		//return Collections3.extractToString(roleList, "name", ",");
+		return "";
 	}
 }

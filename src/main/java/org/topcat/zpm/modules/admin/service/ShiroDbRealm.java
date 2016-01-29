@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 import org.topcat.zpm.common.shiro.UsernamePasswordToken;
 import org.topcat.zpm.common.utils.Collections3;
 import org.topcat.zpm.common.utils.Encodes;
-import org.topcat.zpm.modules.admin.entity.User;
+import org.topcat.zpm.modules.entity.User;
 import org.topcat.zpm.modules.admin.utils.UserUtils;
 
 @Component

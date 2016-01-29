@@ -12,6 +12,7 @@ import history from '../common/history';
 import Login from '../components/Login';
 import Index from '../components/Index/Index';
 import Inbox from '../components/Index/Inbox';
+import UserManage from '../components/admin/UserManage';
 
 // Don't do this! You’re bringing DevTools into the production bundle.
 import DevTools from '../containers/DevTools';
@@ -28,6 +29,7 @@ ReactDOM.render(
 		      <IndexRoute component={Index} />
 		      <Route path="index" component={Index} />
 		      <Route path="inbox" component={Inbox} />
+		      <Route path="users" component={UserManage} />
 		    </Route>
 		  </Router>
 		  <DevTools />

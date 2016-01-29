@@ -12,12 +12,12 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.topcat.zpm.common.utils.CacheUtils;
 import org.topcat.zpm.common.utils.SpringContextHolder;
-import org.topcat.zpm.modules.admin.dao.MenusMapper;
-import org.topcat.zpm.modules.admin.dao.RolesMapper;
-import org.topcat.zpm.modules.admin.dao.UsersMapper;
-import org.topcat.zpm.modules.admin.entity.Menu;
-import org.topcat.zpm.modules.admin.entity.Role;
-import org.topcat.zpm.modules.admin.entity.User;
+import org.topcat.zpm.modules.dao.MenusMapper;
+import org.topcat.zpm.modules.dao.RolesMapper;
+import org.topcat.zpm.modules.dao.UsersMapper;
+import org.topcat.zpm.modules.entity.Menu;
+import org.topcat.zpm.modules.entity.Role;
+import org.topcat.zpm.modules.entity.User;
 import org.topcat.zpm.modules.admin.service.ShiroDbRealm;
 
 /**

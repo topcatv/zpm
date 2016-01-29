@@ -1,7 +1,7 @@
-package org.topcat.zpm.modules.admin.dao;
+package org.topcat.zpm.modules.dao;
 
 import org.topcat.zpm.common.annotation.MyBatisDao;
-import org.topcat.zpm.modules.admin.entity.Menu;
+import org.topcat.zpm.modules.entity.Menu;
 import tk.mybatis.mapper.common.Mapper;
 
 @MyBatisDao

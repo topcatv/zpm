@@ -44,7 +44,7 @@ public class LoginController extends BaseController {
 	@Autowired
 	private SessionDAO sessionDAO;
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @RequestMapping(value = "${adminPath}/test", method = RequestMethod.GET)
     @ResponseBody
     public String test(String fu){
         return "你说: "+fu;

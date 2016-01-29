@@ -6,7 +6,7 @@ package org.topcat.zpm.common.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
-import org.topcat.zpm.modules.admin.entity.User;
+import org.topcat.zpm.modules.entity.User;
 import org.topcat.zpm.modules.admin.utils.UserUtils;
 
 import javax.persistence.Column;
